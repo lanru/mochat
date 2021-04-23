@@ -2,7 +2,6 @@
 
 if [ "${APP_ENV}" = "dev" ]; then
   composer install;
-  composer cs-fix;
   php bin/hyperf.php server:watch;
   echo "dev-done";
 else
