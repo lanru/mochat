@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @contact  group@mo.chat
  * @license  https://github.com/mochat-cloud/mochat/blob/master/LICENSE
  */
-namespace App\Action\Admin\WorkContact;
+namespace App\Action\Admin\WorkContact\WorkContact;
 
 use App\Contract\WorkContactServiceInterface;
 use Hyperf\HttpServer\Annotation\Controller;

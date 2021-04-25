@@ -21,7 +21,7 @@ export function editUserPortrait (params) {
 // 客户-客户详情-批量打标签
 export function addTag (params) {
   return request({
-    url: '/workContact/batchLabeling',
+    url: '/admin/workContact/batchLabeling',
     method: 'post',
     data: params
   })
@@ -30,7 +30,7 @@ export function addTag (params) {
 // 客户-客户详情-查看客户详情基本信息
 export function getWorkContactInfo (params) {
   return request({
-    url: '/workContact/show',
+    url: '/admin/workContact/show',
     method: 'get',
     params: params
   })
@@ -39,7 +39,7 @@ export function getWorkContactInfo (params) {
 // 客户-客户详情-编辑客户详情基本信息
 export function editWorkContactInfo (params) {
   return request({
-    url: '/workContact/update',
+    url: '/admin/workContact/update',
     method: 'put',
     data: params
   })
@@ -48,7 +48,7 @@ export function editWorkContactInfo (params) {
 // 客户-客户列表
 export function workContactList (params) {
   return request({
-    url: '/workContact/index',
+    url: '/admin/workContact/index',
     method: 'get',
     params: params
   })
@@ -75,7 +75,7 @@ export function groupChatList (params) {
 // 客户来源下拉框
 export function customersSource (params) {
   return request({
-    url: '/workContact/source',
+    url: '/admin/workContact/source',
     method: 'get',
     params: params
   })
@@ -93,7 +93,7 @@ export function UserPortraitList (params) {
 // 客户 - 同步客户
 export function synContact (params) {
   return request({
-    url: '/workContact/synContact',
+    url: '/admin/workContact/synContact',
     method: 'put',
     data: params
   })
@@ -102,7 +102,7 @@ export function synContact (params) {
 // 客户 - 互动轨迹
 export function track (params) {
   return request({
-    url: '/workContact/track',
+    url: '/admin/workContact/track',
     method: 'get',
     params: params
   })

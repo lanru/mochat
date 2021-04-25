@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @contact  group@mo.chat
  * @license  https://github.com/mochat-cloud/mochat/blob/master/LICENSE
  */
-namespace App\Action\Admin\WorkContact;
+namespace App\Action\Admin\WorkContact\WorkContact;
 
 use App\Logic\WorkContact\IndexLogic;
 use App\Middleware\PermissionMiddleware;
@@ -48,7 +48,7 @@ class Index extends AbstractAction
         //接收参数
         $params = $this->request->inputs(
             [
-                'keyWords', 'remark', 'fieldId', 'fieldType', 'fieldValue', 'gender', 'addWay', 'roomId', 'groupNum',
+                'keyWords', 'remark1', 'fieldId', 'fieldType', 'fieldValue', 'gender', 'addWay', 'roomId', 'groupNum',
                 'employeeId', 'startTime', 'endTime', 'businessNo', 'page', 'perPage',
             ],
             [

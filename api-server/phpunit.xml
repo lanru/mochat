@@ -8,6 +8,9 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
+    <php>
+        <env name="SCAN_CACHEABLE" value="true" />
+    </php>
     <testsuites>
         <testsuite name="Tests">
             <directory suffix="Test.php">./test</directory>
