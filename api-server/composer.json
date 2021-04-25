@@ -36,7 +36,8 @@
         "overtrue/pinyin": "^4.0",
         "overtrue/wechat": "~4.0",
         "php-ffmpeg/php-ffmpeg": "^0.16.0",
-        "xxtime/flysystem-aliyun-oss": "^1.5"
+        "xxtime/flysystem-aliyun-oss": "^1.5",
+        "hyperf/di": "2.0.26.x-dev"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",
@@ -46,8 +47,14 @@
         "hyperf/devtool": "~2.0.0",
         "hyperf/testing": "~2.0.0",
         "symfony/var-dumper": "^5.1",
-        "hyperf/watcher": "^2.0"
+        "hyperf/watcher": "^2.0",
+        "phpunit/phpunit": "^7.5.2"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/wlh/Documents/www/zzsp/mochat-lanru/di"
+        }],
     "suggest": {
         "ext-openssl": "Required to use HTTPS.",
         "ext-json": "Required to use JSON.",
