@@ -10,6 +10,7 @@
          stopOnFailure="false">
     <php>
         <env name="SCAN_CACHEABLE" value="true" />
+        <env name="USER_ID" value="1" />
     </php>
     <testsuites>
         <testsuite name="Tests">

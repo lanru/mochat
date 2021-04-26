@@ -10,6 +10,7 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Cases;
 
+use HyperfTest\AdminTestCase;
 use HyperfTest\HttpTestCase;
 
 /**
@@ -17,7 +18,7 @@ use HyperfTest\HttpTestCase;
  * @internal
  * @coversNothing
  */
-class CommonUploadTest extends HttpTestCase
+class CommonUploadTest extends AdminTestCase
 {
     public $pngFile = '/tmp/mtFile.png';
 
@@ -37,25 +38,25 @@ class CommonUploadTest extends HttpTestCase
         file_exists($this->tgzFile) && unlink($this->tgzFile);
     }
 
-    public function post($uri, $data = [], $headers = [])
-    {
-        $reqData = [
-            'headers' => $headers,
-        ];
-        empty($data['form_params']) || $reqData              = $data['form_params'];
-        empty($data['multipart']) || $reqData['multipart'][] = [
-            'name'     => $data['multipart']['name'],
-            'contents' => fopen($data['multipart']['file'], 'rb'),
-            'filename' => basename($data['multipart']['file']),
-        ];
-        $response = $this->request('POST', $uri, $reqData);
-
-        return json_decode($response->getBody()->getContents(), true);
-    }
+//    public function post($uri, $data = [], $headers = [])
+//    {
+//        $reqData = [
+//            'headers' => $headers,
+//        ];
+//        empty($data['form_params']) || $reqData              = $data['form_params'];
+//        empty($data['multipart']) || $reqData['multipart'][] = [
+//            'name'     => $data['multipart']['name'],
+//            'contents' => fopen($data['multipart']['file'], 'rb'),
+//            'filename' => basename($data['multipart']['file']),
+//        ];
+//        $response = $this->request('POST', $uri, $reqData);
+//
+//        return json_decode($response->getBody()->getContents(), true);
+//    }
 
     public function testFile(): void
     {
-        $res = $this->post(
+        $res = $this->doPost(
             '/common/upload',
             [
                 'multipart' => [
@@ -67,7 +68,7 @@ class CommonUploadTest extends HttpTestCase
         );
         self::assertSame(200, $res['code'], $res['msg']);
 
-        $res = $this->post(
+        $res = $this->doPost(
             '/common/upload',
             [
                 'multipart' => [
