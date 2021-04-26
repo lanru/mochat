@@ -40,7 +40,7 @@ class Index extends AbstractAction
      */
     public function handle()
     {
-        $corpId = user()['corpIds2'];
+        $corpId = user()['corpIds'];
         if (count($corpId) != 1) {
             throw new CommonException(ErrorCode::INVALID_PARAMS, '请先选择企业');
         }

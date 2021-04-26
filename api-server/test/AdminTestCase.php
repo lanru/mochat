@@ -131,10 +131,23 @@ abstract class AdminTestCase extends TestCase
      * 执行POST请求，自动添加签名字符串
      * @param $uri
      * @param array $postData
-     * @param string $method
+     * @return mixed
      */
     public function doPost($uri, array $postData = [])
     {
         return $this->post($uri, $postData, $this->header);
+    }
+
+    /**
+     * 执行POST请求，自动添加签名字符串
+     * @param $uri
+     * @param array $data
+     * @return mixed
+     */
+    public function doGet($uri, array $data = [])
+    {
+        $res = $this->get($uri, $data, $this->header);
+        $this->assertSame(200, $res['code'], $res['msg']);
+        return $res;
     }
 }
