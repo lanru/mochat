@@ -15,7 +15,7 @@ $handlers = [
     [
         'class' =>  Monolog\Handler\RotatingFileHandler::class,
         'constructor' => [
-            'filename' => BASE_PATH . '/runtime/logs/hyperf.log',
+            'filename' => BASE_PATH . '/runtime/logs/hyperf-info.log',
             'level' => Monolog\Logger::INFO,
         ],
         'formatter' => [
@@ -29,9 +29,9 @@ $handlers = [
     ],
     // debug日志
     [
-        'class' => App\Common\Handler\LogFileHandler::class,
+        'class' => Monolog\Handler\RotatingFileHandler::class,
         'constructor' => [
-            'stream' => BASE_PATH . '/runtime/logs/hyperf-debug.log',
+            'filename' => BASE_PATH . '/runtime/logs/hyperf-debug.log',
             'level' => Monolog\Logger::DEBUG,
         ],
         'formatter' => [
@@ -45,9 +45,9 @@ $handlers = [
     ],
     // error日志
     [
-        'class' => App\Common\Handler\LogFileHandler::class,
+        'class' => Monolog\Handler\RotatingFileHandler::class,
         'constructor' => [
-            'stream' => BASE_PATH . '/runtime/logs/hyperf-error.log',
+            'filename' => BASE_PATH . '/runtime/logs/hyperf-error.log',
             'level' => Monolog\Logger::ERROR,
         ],
         'formatter' => [

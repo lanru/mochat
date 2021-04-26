@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 namespace App\Action\Admin\WorkContact\WorkContact;
 
-use App\Logic\WorkContact\IndexLogic;
+use App\Logic\Admin\WorkContact\WorkContact\IndexLogic;
 use App\Middleware\PermissionMiddleware;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
@@ -40,7 +40,7 @@ class Index extends AbstractAction
      */
     public function handle()
     {
-        $corpId = user()['corpIds'];
+        $corpId = user()['corpIds2'];
         if (count($corpId) != 1) {
             throw new CommonException(ErrorCode::INVALID_PARAMS, '请先选择企业');
         }

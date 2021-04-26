@@ -54,7 +54,7 @@ class FilesystemExtTest extends TestCase
         $fullUrl = $this->filesystemExt->getFullUrl($path);
         if ($this->filesystemExt->getAdapterName() === 'local') {
             $root    = $this->filesystemExt->getConfig()['root'];
-            $fullUrl = str_replace(config('framework.app_domain', ''), $root, $fullUrl);
+            $fullUrl = str_replace(config('framework.app_domain', '').'/static', $root, $fullUrl);
         }
 
         $res = fopen($fullUrl, 'rb');
