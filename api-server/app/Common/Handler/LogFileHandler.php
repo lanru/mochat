@@ -11,6 +11,7 @@ declare(strict_types=1);
  * Date：2019/11/29
  * Time：下午6:39
  */
+
 namespace App\Common\Handler;
 
 use Monolog\Handler\StreamHandler;
@@ -24,7 +25,7 @@ use Monolog\Logger;
  */
 class LogFileHandler extends StreamHandler
 {
-    
+
     /**
      * handle
      * 改写父类方法，增加判断日志输出，框架日志
@@ -37,12 +38,8 @@ class LogFileHandler extends StreamHandler
             return false;
         }
         $record = $this->processRecord($record);
-        // 判断是否开始日志记录
-        if (!config('app_log')) {
-            return false;
-        }
-        // 判断是否处理框架日志
-        if (!config('hf_log') && $record['channel'] == 'hyperf') {
+        // env才记录DEBUG日志
+        if (config('app_env') !== 'env' && $record['level'] == Logger::DEBUG) {
             return false;
         }
 
